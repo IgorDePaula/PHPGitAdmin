@@ -13,6 +13,7 @@ and open the template in the editor.
     <body>
         <?php
         echo 'Hello World!';
+        print_r($this->data['result']);
         ?>
     </body>
 </html>
