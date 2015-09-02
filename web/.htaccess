@@ -1,0 +1,6 @@
+SetEnv DEV true
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !/(admin|css|fonts|bower_components|ico|js)/
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* index.php [QSA,L]

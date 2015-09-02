@@ -1,0 +1,11 @@
+{
+    "name":"phpgitadmin/phpgitadmin",
+    "authors":[{
+            "name":"Igor de Paula",
+            "email":"igordepaula@adminweb.com.br"
+    }],
+    "require": {
+        "slim/slim": "^2.6",
+        "symfony/process": "dev-master"
+    }
+}
