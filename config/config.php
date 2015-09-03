@@ -1,9 +1,10 @@
 <?php
 
-return function($app){
-    
+return function($app) {
+
     $app['debug'] = getenv('DEV');
-    
-   // $app->config('templates.path',__DIR__.'/../views/');
-    
+
+    $app->register(new Silex\Provider\TwigServiceProvider(), array(
+        'twig.path' => __DIR__ . '/../views',
+    ));
 };
