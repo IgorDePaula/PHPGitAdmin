@@ -1,0 +1,20 @@
+{
+  "name": "PHPGitAdmin",
+  "version": "0.0.0",
+  "homepage": "https://github.com/IgorDePaula/PHPGitAdmin",
+  "authors": [
+    "Igor C. de Paula <igordepaula@adminweb.com.br>"
+  ],
+  "description": "Panel Admin to Git Repositories Server",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
+}

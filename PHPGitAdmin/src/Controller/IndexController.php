@@ -4,21 +4,32 @@ namespace PHPGitAdmin\Controller;
 
 use Silex\Application;
 use Silex\ControllerProviderInterface;
+use Symfony\Component\HttpFoundation\Request;
 
-class IndexController implements ControllerProviderInterface 
-{
+class IndexController implements ControllerProviderInterface {
+
     private $app = null;
-    
+
     public function connect(Application $app) {
-       $controller = $app['controllers_factory'];
-       $this->app = $app;
-       $controller->get('/',[$this,'index']);
-       return $controller;
+        $controller = $app['controllers_factory'];
+        $this->app = $app;
+        $controller->get('/', [$this, 'index']);
+        $controller->get('/login', [$this, 'login']);
+        return $controller;
     }
-    
-    public function index(){
-         $app = $this->app;
-         return $app['twig']->render('index.twig',['name'=>'teste']);        
+
+    public function index() {
+        $app = $this->app;
+        return $app['twig']->render('index.twig', ['name' => 'teste', 'app' => $app]);
     }
+
+    public function login() {
+        $app = $this->app;
+        return $app['twig']->render('login.html.twig', array(
+                    'error' => $app['security.last_error'](new Request()),
+                    'last_username' => $app['session']->get('_security.last_username'),
+        ));
+    }
+
 
 }
