@@ -2,8 +2,8 @@
 
 return function($app){
     
-    $app->config('debug',  getenv('DEV'));
+    $app['debug'] = getenv('DEV');
     
-    $app->config('templates.path',__DIR__.'/../views/');
+   // $app->config('templates.path',__DIR__.'/../views/');
     
 };

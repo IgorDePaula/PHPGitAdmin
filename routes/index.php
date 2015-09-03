@@ -1,17 +1,10 @@
 <?php
 
-use Symfony\Component\Process\Process;
+use PHPGitAdmin\Controller\IndexController;
+use Silex\Application;
 
-return function($app) {
-
-    $app->get('/', function()use ($app) {
-        $process = new Process('dir');
-        $process->run();
-        if (!$process->isSuccessful()) {
-            throw new \RuntimeException($process->getErrorOutput());
-        }
-
-        $result = $process->getOutput();
-        $app->render('index.php', ['result' => $result]);
-    });
+return function(Application $app) {
+    
+    $app->mount('/', new IndexController());
+    
 };

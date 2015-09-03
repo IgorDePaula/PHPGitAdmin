@@ -2,9 +2,9 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-use Slim\Slim;
+use Silex\Application;
 
-$app = new Slim();
+$app = new Application();
 
 $config = require __DIR__.'/../config/config.php';
 
