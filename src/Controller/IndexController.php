@@ -14,7 +14,12 @@ class IndexController implements ControllerProviderInterface {
         $controller = $app['controllers_factory'];
         $this->app = $app;
         $controller->get('/', [$this, 'index']);
-        $controller->get('/login', [$this, 'login']);
+        $controller->get('/login', function(Request $request) use ($app) {
+            return $app['twig']->render('login.html.twig', array(
+                        'error' => $app['security.last_error']($request),
+                        'last_username' => $app['session']->get('_security.last_username'),
+            ));
+        });
         return $controller;
     }
 
@@ -30,6 +35,5 @@ class IndexController implements ControllerProviderInterface {
                     'last_username' => $app['session']->get('_security.last_username'),
         ));
     }
-
 
 }
